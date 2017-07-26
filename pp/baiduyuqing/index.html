@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://cdn.bootcss.com/fullPage.js/2.8.2/jquery.fullPage.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/fullPage.js/2.8.2/jquery.fullPage.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="header">
+    <div class="header-inner">
+        <a href="" class="log"></a>
+        <ul class="daohang1">
+            <li><a href="">首页</a></li>
+            <li><a href="">产品介绍</a></li>
+            <li><a href="">用户版</a></li>
+        </ul>
+        <ul class="daohang2">
+            <li id="xiala"><a href="" class="hot">手机客户端</a><i></i>
+            <div class="xiala">
+                <div class="sanjiao"></div>
+                <div class="text">扫码下载</div>
+                <div class="img">
+                    <div class="zuo"></div>
+                    <div class="you"></div>
+                </div>
+                <div class="wenzi">
+                    <div class="left">安卓</div>
+                    <div class="right">ios</div>
+                </div>
+            </div></li>
+            <li><a href="" class="baidu">百度司南</a></li>
+            <li><a href="" class="lianxi">联系我们</a></li>
+            <li><a href="" class="shenqing">申请试用</a></li>
+        </ul>
+
+    </div>
+</div>
+<div id="fullpage">
+    <div class="section" id="section1">
+        <div class="cloud1"></div>
+        <div class="cloud2"></div>
+        <div class="cloud3"></div>
+        <div class="launch">
+            <div class="airplane"></div>
+        </div>
+        <div class="sea">
+            <div class="ship"></div>
+            <div class="bingshan"></div>
+            <div class="bingshan2"></div>
+            <div class="bingshan3"></div>
+            <div class="jiantou"></div>
+        </div>
+        <div class="input"></div>
+    </div>
+    <div class="section" id="section2">
+        <div class="wenzi">
+        <div class="lingxian"></div>
+        <div class="text">
+            <h4>数据收集与处理</h4>
+            <p>15年专业数据收集与语义分析技术积累<br>卓越极致，不断攀登</p>
+        </div>
+        </div>
+        <div class="brain"></div>
+        <div class="kuai1"></div>
+        <div class="kuai2"></div>
+        <div class="kuai3"></div>
+        <div class="kuai4"></div>
+        <div class="kuai5"></div>
+        <div class="jiantou"></div>
+    </div>
+    <div class="section" id="section3">
+        <div class="kuai1"></div>
+        <div class="kuai2"></div>
+        <div class="kuai3"></div>
+        <div class="kuai4"></div>
+        <div class="kuai5"></div>
+        <div class="wenzi">
+            <div class="quanmian"></div>
+            <div class="text">
+                <h4>舆情分析逻辑与架构</h4>
+                <p>声量诊断、传播分析、情感提炼、受众画像<br>有方法论，更有智慧</p>
+            </div>
+        </div>
+        <div class="allside"></div>
+        <div class="dibu"></div>
+        <div class="jiantou"></div>
+    </div>
+    <div class="section" id="section4">
+        <div class="wenzi">
+            <div class="box"></div>
+            <div class="zhuanye"></div>
+            <div class="text">
+                <h4>专业数据可视化</h4>
+                <p>非凡的数据洞悉和可视化能力<br>精研数据，惊艳所见</p>
+            </div>
+        </div>
+        <div class="stat"></div>
+        <div class="follow-head">
+            <div class="copyright">© 2014 Baidu<a target="_blank" href="http://www.baidu.com/duty/">使用百度前必读</a></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#fullpage').fullpage({
+            navigation:true,
+            navigationPosition:'right',
+            continuousVertical:true,
+            navigationTooltips:['登录百度舆情','领先：数据收集与处理','全面：舆情分析逻辑与架构','专业：专业数据可视化'],
+        });
+        $('.jiantou').on('click',function(){
+            $.fn.fullpage.moveSectionDown();
+        })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<style>
+body{
+    padding:0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+    color: black; 
+    background: url(img/4.gif);
+     /*background-position:top;*/
+
+    background-size:70%;
+    background-repeat: no-repeat;
+}
+
+.shengming{
+    font-size: 20px;
+    width:100px;
+    height:50px;
+}
+.fenshu{
+    font-size: 20px;
+    width:100px;
+    height:50px;
+}
+.guanka{
+    font-size: 20px;
+    width:100px;
+    height:50px;
+}
+
+.boxx{
+    width:100px;
+    height:170px;
+    /*background: red;*/
+    font-family: 楷体;
+    position: absolute;
+    left:10px;
+    bottom:0;
+}
+
+/*.................*/
+.box{
+    width:100%;
+    height:50px;
+    float:right;
+    /*background: red;*/
+    font-family: 楷体;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+}
+.box{
+    color:#B01000;
+}
+.zhinan{
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    width:27%;
+    height:50px;
+}
+
+/*大嘴*/
+.rights{
+    width:150px;
+    height:768px;
+    position:absolute;
+    /*background: green;*/
+    right:0;
+    top:0;
+    /*z-index: 20;*/
+}
+.zui{
+    width:380px;
+    height:730px;
+    
+    background: red;
+    
+}
+.zui img{
+    width:380px;
+    height:730px;
+    background: red;
+    position: absolute;
+    right:-160px;
+    top:0;
+
+}
+.bai{
+    width:85px;
+    height:730px;
+    background:rgba(255,255,255,0);
+    position: absolute;
+    right:0;
+    top:0;
+    /*z-index: 10;*/
+}
+</style>
+<body>
+    <div class="boxx">
+        <div class="shengming">生命:<span>5</span></div>
+        <div class="fenshu">分数:<span>0</span></div>
+        <div class="guanka">关卡:<span>1</span></div>
+    </div>
+	<div class="box">
+        <img src="img/11.jpg" alt="">
+    </div>
+
+    <!-- 大嘴 -->
+    <div class="rights">
+        <div class="zui"><img src="img/222.jpg" alt=""></div>
+     
+    </div>
+    <div class="bai"></div>
+</body>
+</html>
+<script>
+
+
+ var arr=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
+var obj={"A":"<img src='img/a.gif' style='width:150px;height:80px;'>","B":"<img src='img/b.gif' style='width:170px;height:100px;'>","C":"<img src='img/c.gif' style='width:150px;height:90px;'>","D":"<img src='img/d.gif' style='width:150px;height:80px;'>","E":"<img src='img/e.gif' style='width:170px;height:100px;'>","F":"<img src='img/f.gif' style='width:170px;height:100px;'>","G":"<img src='img/g.gif' style='width:150px;height:80px;'>","H":"<img src='img/h.gif' style='width:170px;height:100px;'>","I":"<img src='img/i.gif' style='width:170px;height:100px;'>","J":"<img src='img/j.gif' style='width:150px;height:80px;'>","K":"<img src='img/k.gif' style='width:170px;height:100px;'>","L":"<img src='img/l.gif' style='width:150px;height:90px;'>","M":"<img src='img/m.gif' style='width:170px;height:100px;'>","N":"<img src='img/n.gif' style='width:170px;height:90px;'>","O":"<img src='img/o.gif' style='width:150px;height:90px;'>","P":"<img src='img/p.gif' style='width:170px;height:100px;'>","Q":"<img src='img/q.gif' style='width:170px;height:100px;'>","R":"<img src='img/r.gif' style='width:170px;height:90px;'>","S":"<img src='img/s.gif' style='width:150px;height:80px;'>","T":"<img src='img/t.gif' style='width:170px;height:100px;'>","U":"<img src='img/u.gif' style='width:170px;height:90px;'>","V":"<img src='img/v.gif' style='width:150px;height:80px;'>","W":"<img src='img/w.gif' style='width:170px;height:100px;'>","X":"<img src='img/x.gif' style='width:170px;height:90px;'>","Y":"<img src='img/y.gif' style='width:150px;height:80px;'>","Z":"<img src='img/z.gif' style='width:170px;height:100px;'>"} 
+
+var shengmingzhi=3;
+var fenshuzhi=0;
+var shengming=document.getElementsByClassName("shengming")[0];
+var fenshu=document.getElementsByClassName("fenshu")[0];
+
+
+
+// alert(window.screen.height)
+var llqw=document.documentElement.clientWidth
+var llqh=document.documentElement.clientHeight
+//当前页面中的字母
+var xarr=[];
+//页面中的span
+var xinarr=[];
+//return 出的字母
+var bb=[];
+//速度
+var speen=5;
+
+//****************************
+// 调用函数
+bb=sjzm(arr,3)
+crym(bb)
+move(shengmingzhi)
+key()
+
+function sjzm(arr,num){
+    var newarr=[];
+    for (var i = 0; i < num; i++) {
+        var sj=arr[Math.floor(Math.random()*arr.length)]
+        while (check(sj,newarr)) {
+            sj=arr[Math.floor(Math.random()*arr.length)]
+        };
+        newarr.push(sj)
+        xarr.push(sj)
+    };
+    return newarr
+}
+
+function check(a,aa){
+   for (var i = 0; i < aa.length; i++) {
+       if (aa[i]==a) {
+        return true
+       };
+   };
+   return false
+}
+
+
+
+function crym(arr){
+    for (var i = 0; i < arr.length; i++) {
+        var span=document.createElement("span")
+        document.body.appendChild(span)
+         span.innerHTML=obj[arr[i]]
+         var lefts=Math.floor((llqw-1200)*Math.random()+100)
+         var top=Math.floor(510*Math.random()+50)
+         while(checkweizhi(span,xinarr)){
+             lefts=Math.floor((llqw-1200)*Math.random()+100)
+             top=Math.floor(500*Math.random()+50)
+         }
+         span.style.cssText="position:absolute;left:"+lefts+"px;top:"+top+"px;"
+         xinarr.push(span)
+    }
+}
+function checkweizhi (ele,elearr) {
+    for (var i = 0; i < elearr.length; i++) {
+        if(ele.lefts>elearr[i].lefts-170&&ele.lefts<elearr[i].lefts+170){
+            return true
+        }
+    };
+    return false
+}
+
+
+
+
+
+function move(){
+  setInterval(function(){
+    for (var i = 0; i < xinarr.length; i++) {
+    var tt=xinarr[i].offsetLeft;
+        xinarr[i].style.left=tt+speen+"px"
+        if (tt>llqw-100) {
+            document.body.removeChild(xinarr[i])
+            xarr.splice(i,1)
+             xinarr.splice(i,1)
+             crym(sjzm(arr,1))
+             shengming--;
+             shengmingzhi.innerHTML=shengming;
+             if (shengming<=0) {
+                alert("完蛋")
+                location.reload();
+             }
+        }
+    }
+  },50)
+}
+
+
+
+
+function key(){
+    document.onkeydown=function(e){
+       e=e||window.event
+       var an=String.fromCharCode(e.keyCode)
+       for (var i = 0; i < xarr.length; i++) {
+           if (xarr[i]==an) {
+             document.body.removeChild(xinarr[i])
+             xarr.splice(i,1)
+             xinarr.splice(i,1)
+             crym(sjzm(arr,1))
+           };
+       };
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   var shengming=3
+    var fenzhi=0
+    var shengminga=$(".shengming")[0]
+    var fenzhia=$(".fenzhi")[0]
+    var speed=2
+    var geshu=3
+    var t;
+    var guanka=10
+    var hehe=[]//当前页面存在的字母
+    getrand(arr,geshu)
+    var haha=[]//当前页面存在的span
+    create(hehe)
+    move(shengminga)
+    jianpan(shengminga,fenzhia)
+    
+   function move (shengminga) {
+        var ch=document.documentElement.clientHeight
+        t=setInterval(function(){
+            for (var i = 0; i < haha.length; i++) {
+                var tops=haha[i].offsetTop+speed
+                haha[i].style.top=tops+"px"
+                if (tops>ch) {
+                    document.body.removeChild(haha[i])
+                    hehe.splice(i,1)
+                    haha.splice(i,1)
+                    create(getrand(arr,1))
+                    shengming--
+                    shengminga.innerHTML=shengming
+                    if (shengming<=0) {
+                        alert("智障！！！")
+                        location.reload()
+                    }
+                }
+            }
+        },50)
+    }
+
+    function jianpan (shengminga,fenzhia) {
+        document.onkeydown=function(e){
+            for (var i = 0; i < haha.length; i++) {
+                var jianpan=String.fromCharCode(e.keyCode)
+                if (jianpan==haha[i].innerHTML) {
+                    document.body.removeChild(haha[i])
+                    hehe.splice(i,1)
+                    haha.splice(i,1)
+                    create(getrand(arr,1))
+                    fenzhi++
+                    fenzhia.innerHTML=fenzhi
+                    if (fenzhi>=guanka) {
+                        alert("恭喜你，吃屎了")
+                        next(shengminga,fenzhia)
+                    }
+                }
+            }
+        }
+    }
+
+function next (shengminga,fenzhia) {
+    clearInterval(t)
+    for (var j = 0; j < haha.length; j++) {
+       document.body.removeChild(haha[j])
+     }
+     speed+=1
+     geshu+=1
+     guanka+=10
+     hehe=[]
+     haha=[]
+     getrand(arr,geshu)
+     create(hehe)
+     move(shengminga)
+     jianpan(shengminga,fenzhia)
+}
+    //随机从某个数组取指定的随机元素
+    function getrand(arr,num){
+        var newarr=[]
+        for (var i = 0; i < num; i++) {
+            var letter=arr[Math.floor(Math.random()*arr.length)]
+            while(check(letter,hehe)){
+                letter=arr[Math.floor(Math.random()*arr.length)]
+            }
+            newarr.push(letter)
+            hehe.push(letter)
+        }
+        return newarr
+    }
+function check (val,arr){
+    for (var i = 0; i < arr.length; i++) {
+        if (val==arr[i]) {
+            return true
+        };
+    };
+    return false
+}
+
+
+//将制定数组的元素放在HTML页面当中
+function create(arr){
+    var newarr=[]
+    var cx=document.documentElement.clientWidth
+    for (var i = 0; i < arr.length; i++) {
+        var span=document.createElement("span")
+        span.innerHTML=arr[i].
+        var lefts=(100+Math.random()*(cx-200))
+        span.lefts=lefts
+        while(checkweizhi(span,haha)){
+        lefts=(100+Math.random()*(cx-200))
+        span.lefts=lefts
+        }
+        newarr.push(span)
+        haha.push(span)
+        span.style.cssText="position:absolute;left:"+lefts+"px;top:"+Math.random()*30+"px;"
+        document.body.appendChild(span)
+    };
+    return newarr;
+}
+function checkweizhi (ele,elearr) {
+    for (var i = 0; i < elearr.length; i++) {
+        if(ele.lefts>elearr[i].lefts-16&&ele.lefts<elearr[i].lefts+16){
+            return true
+        }
+    };
+    return false
+}
+*/
+
+
+</script>
